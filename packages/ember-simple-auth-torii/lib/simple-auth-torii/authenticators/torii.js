@@ -63,8 +63,8 @@ export default Base.extend({
   authenticate: function(provider) {
     var _this = this,
         onlyProvider = (typeof options === 'string'),
-        provider = onlyProvider ? options : options.provider,
         toriiOptions = onlyProvider ? {} : options;
+    provider = onlyProvider ? options : options.provider;
     return new Ember.RSVP.Promise(function(resolve, reject) {
       _this.torii.open(provider, toriiOptions).then(function(data) {
         _this.resolveWith(provider, data, resolve);
